@@ -10,6 +10,57 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require normalize
+ *= require foundation.min.css
  *= require_tree .
  *= require_self
  */
+
+body {
+	background: linear-gradient(to right, #004379, #00D3E9 , #004379);
+}
+
+.top-bar {
+	background-color: #0707A0 !important; 
+}
+
+.bpm-header {
+	text-align: center;
+}
+ .bpm-logo {
+ 	text-align: center;
+ 	margin-top: 3%;
+ }
+
+.neon-border {
+	border: 0;
+	height: 0;
+	box-shadow: 0 0 8px 5px rgb(255, 59, 254);
+}
+
+.neon-border:after {
+	content: "\00a0";
+}
+
+.wide-row {
+	max-width: 100%;
+	line-height: normal;
+}
+
+.wide-columns {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.spotify-icon {
+	width: 30px;
+	padding-right: 8%;
+}
+
+.spotify-login-link {
+	background-color: #0707A0 !important;
+}
+
+.spotify-login-link:hover {
+	background-color: purple !important;
+}

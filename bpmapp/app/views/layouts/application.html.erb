@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bpmapp</title>
+  <title>BPM Last 100 Playlist</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">BPM Playlist</a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
 
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li ><a href="/auth/spotify" class="spotify-login-link">
+      	<%= image_tag("spotify-icon.png", class:"spotify-icon") %> Login</a></li>
+    </ul>
+  </section>
+</nav>
+<div class="row bpm-header">
+  <div class="large-8 large-centered columns">
+    <%= image_tag("bpm-logo.png", class:"bpm-logo") %>
+    <h2 class="center">100 Most Recently Played Tracks</h2>
+  </div>
+</div>
+<div class="row wide-row">
+  <div class="large-12 columns wide-columns">
+    <hr class="neon-border">
+  </div>
+</div>
 <%= yield %>
 
 </body>
