@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="fixed">
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
@@ -24,6 +25,7 @@
     </ul>
   </section>
 </nav>
+</div>
 <div class="row bpm-header">
   <div class="large-8 large-centered columns">
     <%= image_tag("bpm-logo.png", class:"bpm-logo") %>
@@ -36,6 +38,6 @@
   </div>
 </div>
 <%= yield %>
-
+<script>$(document).foundation();</script>
 </body>
 </html>

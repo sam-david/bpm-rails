@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require foundation
 //= require foundation.topbar
+//= require foundation.accordion
 //= require turbolinks
 //= require_tree .

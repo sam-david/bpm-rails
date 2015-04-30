@@ -1,1 +1,6 @@
 <h2> Spotify Logged In</h2>
+
+<% @playlists.each do |playlist| %>
+	<div><%= label_tag(:name_label, playlist.name, class: 'left') %>
+	<%= radio_button_tag(:name, playlist.name, class: 'left') %></div>
+<% end %>

@@ -35,7 +35,7 @@ body {
 .neon-border {
 	border: 0;
 	height: 0;
-	box-shadow: 0 0 8px 5px rgb(255, 59, 254);
+	box-shadow: 0 0 8px 5px rgb(215, 28, 240);
 }
 
 .neon-border:after {
@@ -53,8 +53,7 @@ body {
 }
 
 .spotify-icon {
-	width: 30px;
-	padding-right: 8%;
+	width: 25px;
 }
 
 .spotify-login-link {
@@ -63,4 +62,28 @@ body {
 
 .spotify-login-link:hover {
 	background-color: purple !important;
+}
+
+.artist {
+	color: rgb(215, 28, 240);
+}
+
+.title {
+	color: white;
+	text-decoration: underline;
+}
+
+.accordion-navigation a {
+	background-color: #004379 !important;
+	/*border-right: solid black 2px;
+	border-left: solid black 2px;
+	border-top: solid black 1px;
+	border-bottom: solid black 1px;*/
+	margin-bottom: 1%;
+	/*box-shadow: 5px 5px 4px -1px rgba(0,0,0,0.75);*/
+	box-shadow: 0 0 15px #00AFFF;
+}
+
+.accordion-navigation a:hover {
+	background-color: #0078a0 !important;
 }

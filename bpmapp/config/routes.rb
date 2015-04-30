@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'spotify#index'
+  root 'spotify#index', to: 'spotify#index'
 
   get '/test' => 'spotify#show' 
   get '/auth/spotify/callback', to: 'spotify#show'
