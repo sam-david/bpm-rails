@@ -14,10 +14,6 @@ class SoundcloudController < ApplicationController
 			end
 		end
 		p @track_list
-		# @track_list.sort_by! {|track| track[:count]}.reverse.to_json
-		# respond_to do |format|
-  #     format.js
-  #   end
 		render json: @track_list.sort_by! {|track| track[:count]}.reverse.to_json
 	end
 end

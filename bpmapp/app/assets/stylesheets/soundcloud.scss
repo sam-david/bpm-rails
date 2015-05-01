@@ -2,6 +2,64 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.header-text {
+	text-align: center;
+}
+
+.soundcloud-icon {
+	width: 2.5%;
+	border-radius: 5px;
+	margin-left: 1%;
+}
+
 .hidden-uri {
 	display: none;
+}
+
+.column-heading {
+	text-align: center;
+	padding-bottom: 1.5%;
+	padding-top: 1.5%;
+}
+
+.artwork-box {
+	text-align: center;
+}
+
+.artwork-image {
+	width: 65%;
+	margin-bottom: 5%;
+}
+
+.soundcloud-user-text {
+	font-size: 1em;
+	padding-top: 15%;
+	margin-bottom: 0px;
+}
+
+.soundcloud-title-text {
+	font-size: .8em;
+	padding-top: 10%;
+	margin-bottom: 0px;
+}
+
+.soundcloud-count-text {
+	font-size: 1.5em;
+	text-align: center;
+	padding-top: 6%;
+	margin-bottom: 0px;
+}
+
+.play-box {
+	padding-top: 1%;
+}
+
+.fi-play {
+	font-size: 2em;
+	padding-top: 5%;
+}
+
+.fi-play:hover {
+	color: #FF4100;
+	cursor: pointer;
 }

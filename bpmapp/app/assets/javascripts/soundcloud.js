@@ -57,15 +57,15 @@ loadSoundcloudWidget = function(url) {
 
 function appendSoundcloudTracks(trackData, divId) {
   divName = '#' + divId;
-  headerDiv = "<div class='row'><div class='large-12'><h3 class='header-text'>Select a Track</h3></div></div>";
-  titleDiv = "<div class='row'><div class='large-3 columns'>Image</div><div class='large-3 columns'>User</div><div class='large-3 columns'>Track Title</div><div class='large-3 columns'>Play Count</div></div>";
+  headerDiv = "<div class='row'><div class='large-12'><h3 class='header-text'>Select a Track from Soundcloud <img src='images/soundcloud.png' class='soundcloud-icon'></h3></div></div>";
+  titleDiv = "<div class='row'><div class='large-2 large-offset-2 columns column-heading'>User</div><div class='large-3 columns column-heading'>Track Title</div><div class='large-3 left columns column-heading'>Play Count</div></div>";
   $(divName).empty();
   $(divName).append(headerDiv);
   $(divName).append(titleDiv);
-  for (i = 0; i < trackData.length && i < 5; i++) {
+  for (i = 0; i < trackData.length && i < 3; i++) {
     trackUri = trackData[i].uri.replace("/", "\/");
     console.log(trackUri);
-    newDiv = "<div class='row'><div class='large-2 columns'><img src='"+ trackData[i].artwork + "'></div><div class='large-2 columns'>" + trackData[i].artist + "</div><div class='large-3 columns'>" + trackData[i].title + "</div><div class='large-3 columns'>" + trackData[i].count + "</div><div class='large-2 columns'><i onclick='playSoundcloud(this)' class='fi-play'></i></div><div class='hidden-uri'>"+ trackData[i].uri + "</div></div>";
+    newDiv = "<div class='row'><div class='large-2 columns artwork-box'><img src='"+ trackData[i].artwork + "' class='artwork-image'></div><div class='large-2 columns'><p class='soundcloud-user-text'>" + trackData[i].artist + "</p></div><div class='large-3 columns'><p class='soundcloud-title-text'>" + trackData[i].title + "</p></div><div class='large-3 columns'><p class='soundcloud-count-text'>" + commaSeparateNumber(trackData[i].count) + "</div><div class='large-2 columns play-box'><i onclick='playSoundcloud(this)' class='fi-play'></i></div><div class='hidden-uri'>"+ trackData[i].uri + "</div></div>";
     $(divName).append(newDiv)
   }
 }
@@ -76,3 +76,10 @@ function playSoundcloud(element) {
   loadSoundcloudWidget(uri);
   console.log(uri);
 }
+
+function commaSeparateNumber(val){
+    while (/(\d+)(\d{3})/.test(val.toString())){
+      val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+    }
+    return val;
+  }

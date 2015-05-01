@@ -60,6 +60,9 @@ GEM
     execjs (2.5.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    foundation-icons-sass-rails (3.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     hashie (2.1.2)
@@ -212,6 +215,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  foundation-icons-sass-rails
   jbuilder (~> 2.0)
   jquery-rails
   json
