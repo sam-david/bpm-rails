@@ -16,6 +16,8 @@
  *= require_self
  */
 
+ @import 'foundation-icons';
+
 body {
 	background: linear-gradient(to right, #004379, #00D3E9 , #004379);
 }
@@ -32,10 +34,20 @@ body {
  	margin-top: 3%;
  }
 
+ .title-heading {
+ 	margin-top: 2%;
+ 	font-family: 'Fredoka One', cursive;
+ 	color: rgb(105, 230, 80);
+ 	 -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: #0707A0;
+ }
+
 .neon-border {
 	border: 0;
 	height: 0;
 	box-shadow: 0 0 8px 5px rgb(215, 28, 240);
+	margin-bottom: 3%;
+
 }
 
 .neon-border:after {
@@ -86,4 +98,20 @@ body {
 
 .accordion-navigation a:hover {
 	background-color: #0078a0 !important;
+}
+
+.footer-neon-border {
+	border: 0;
+	height: 0;
+	box-shadow: 0 0 1px 1px #0707A0;
+}
+
+.footer-neon-border:after {
+	content: "\00a0";
+}
+
+.footer-text {
+	float: right;
+	color: #0707A0;
+	font-size: .7em;
 }
