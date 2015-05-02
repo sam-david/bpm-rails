@@ -4,3 +4,23 @@
 	<div><%= label_tag(:name_label, playlist.name, class: 'left') %>
 	<%= radio_button_tag(:name, playlist.name, class: 'left') %></div>
 <% end %>
+
+<div class="row">
+  <div class="large-12 large-centered columns">
+		<dl class="accordion" data-accordion>
+		  <% @bpm_playlist.each_with_index do |track, index| %>
+		  <dd class="accordion-navigation">
+		    <a href="#panel<%= index %>">
+		      <span class="title"><%= track["title"] %></span> <span class="artist"><%= track["artist"] %></span>
+		      <% if track["breaker?"] == true %>
+		        <span class="breaker right"><%= "BPM Breaker" %></span>
+		      <% end %>
+		    </a>
+		    <div id="panel<%= index %>" class="content">
+		      Loading soundcload tracks...
+		    </div>
+		  </dd>
+		  <% end %>
+		</dl>
+	</div>
+</div>

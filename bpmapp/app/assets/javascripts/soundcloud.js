@@ -22,8 +22,17 @@
 $(document).foundation({
     accordion: {
       callback : function (accordion) {
-        $(accordion[0].previousSibling.previousElementSibling).css('margin-bottom',"0px");
+      	console.log(accordion);
+      	if ($(accordion[0]).hasClass('active') == false ) {
+      		console.log('closed right?')
+	      	$(accordion[0].parentElement).css('margin-bottom',"1%");
+      	} else {
+	      	$(accordion[0]).css('margin-bottom',"1%");
+	        $(accordion[0].previousSibling.previousElementSibling).css('margin-bottom',"0px");
+      	}
         searchSoundcloud(accordion[0].parentNode.firstElementChild.innerText, accordion[0].id);
+        console.log("search", accordion[0]);
+        searchSpotify(accordion[0].parentNode.firstElementChild.innerText, accordion[0].id)
         console.log(accordion[0].parentNode.firstElementChild.innerText);
       }
     }

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/auth/spotify/callback', to: 'spotify#show'
   get '/soundcloud/query', to: 'soundcloud#show'
 
+  get '/spotify/search', to: 'spotify#search'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

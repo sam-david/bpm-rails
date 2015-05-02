@@ -11,7 +11,7 @@
  * file per style scope.
  *
  *= require normalize
- *= require foundation.min.css
+ *= require foundation
  *= require_tree .
  *= require_self
  */
@@ -32,6 +32,10 @@ body {
  .bpm-logo {
  	text-align: center;
  	margin-top: 3%;
+ }
+
+ .breaker {
+ 	color: rgb(255, 53, 0);
  }
 
  .title-heading {
@@ -78,6 +82,7 @@ body {
 
 .artist {
 	color: rgb(215, 28, 240);
+	padding-left: 2%;
 }
 
 .title {

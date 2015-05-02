@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index()
+  	@is_logged_in = false
   	client = Twitter::REST::Client.new do |config|
 		  config.consumer_key        = Rails.application.secrets.twitter_consumer_key
 		  config.consumer_secret     = Rails.application.secrets.twitter_consumer_secret
@@ -20,7 +21,9 @@ class ApplicationController < ActionController::Base
 				new_track["artist"] = /([^-]*)-([^-]*)-([^-]*)/.match(tweet.text)[1].rstrip.lstrip.chomp(" playing on #BPM").chomp(" #BpmBreaker").gsub(/&amp;/, '&')
 			else
 				new_track["breaker?"] = false
-				new_track["title"] = /^([^-]*)-([^-]*)/.match(tweet.text)[2].rstrip.lstrip.chomp(" playing on #BPM")
+				p /^([^-]*)-([^-]*)/.match(tweet.text)
+				p /^([^-]*)-([^-]*)/.match(tweet.text)[2].lstrip.chomp(" playing on #BPM ")
+				new_track["title"] = /^([^-]*)-([^-]*)/.match(tweet.text)[2].lstrip.chomp(" playing on #BPM ")
 				new_track["artist"] = /^([^-]*)-([^-]*)/.match(tweet.text)[1].rstrip
 			end
 			@bpm_playlist << new_track

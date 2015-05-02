@@ -1,3 +1,23 @@
 // Place all the styles related to the Spotify controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.spotify-header-text {
+	text-align: center;
+}
+
+.spotify-border {
+	border: solid black 1px;
+}
+
+.spotify-popularity-text {
+	font-size: 1.4em;
+}
+
+.spotify-track-text {
+	font-size: .9em;
+}
+
+.spotify-artist-text {
+	font-size: 1.2em;
+}
