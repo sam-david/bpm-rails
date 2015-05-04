@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get '/spotify/search', to: 'spotify#search'
 
+  put '/spotify/add', to: 'spotify#add'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

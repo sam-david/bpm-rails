@@ -30,3 +30,26 @@ function appendSpotifyTracks(trackData, divId) {
     $(divName).append(newDiv)
   }
 }
+
+function addTrackToPlaylsit(spotifyId) {
+	$.ajax({
+	    url: "/spotify/add",
+	    data: {spotify_id: spotifyId}
+	  }).success(function(data) {
+	    console.log("Retrieved Track:" + data);
+	    console.log(data);
+	  }).fail(function() {
+	    console.log("failed to get track");
+	  })
+}
+
+function selectPlaylist(test) {
+	console.log(test);
+	console.log('Before', $('.side-nav'))
+	$('.side-nav').fadeOut();
+	console.log('After', $('.side-nav'))
+}
+
+function togglePlaylist() {
+	if ($('.side-nav').css("display: none"))
+}

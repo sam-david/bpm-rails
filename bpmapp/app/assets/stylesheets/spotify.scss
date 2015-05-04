@@ -2,6 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.side-nav {
+	background-color: rgb(41, 41, 41);
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+.spotify-playlist-title-box {
+	background-color: rgb(41, 41, 41);
+	margin-bottom: 0px;
+	text-align: center; 
+}
+
+.spotify-playlist-title {
+	color: #9FD303; 
+	font-size: 1.5em;
+	margin-bottom: 0px;
+	padding: 1%;
+}
+
+.spotify-playlist-list-box {
+	background-color: rgb(41, 41, 41);
+}
+
+.spotify-playlist-text {
+	color: #9FD303 !important;
+}
+
+.spotify-playlist-text:hover {
+	color: #DBFF70 !important;
+}
+
 .spotify-header-text {
 	text-align: center;
 }
