@@ -29,12 +29,13 @@ function appendSpotifyTracks(trackData, divId) {
 	}
 }
 
-function addTrackToPlaylist(spotifyId) {
+function addTrackToPlaylist(spotifyTrackId) {
 	console.log('adding track');
+	console.log('Spotify ID:', spotifyTrackId)
+	console.log('Spotify User ID:', spotifyUserId)
 	$.ajax({
 	    url: "/spotify/add",
-	    method: "PUT",
-	    data: {spotify_id: spotifyId, playlist_id: selectPlaylistId}
+	    data: {spotify_track_id: spotifyTrackId, playlist_id: selectPlaylistId, user_id: spotifyUserId}
 	  }).success(function(data) {
 	    console.log("Retrieved Track:" + data);
 	    console.log(data);

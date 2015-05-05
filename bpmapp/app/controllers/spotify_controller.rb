@@ -26,7 +26,7 @@ class SpotifyController < ApplicationController
         end
 
 		p "R-spotify Login initiated"
-		RSpotify::authenticate(Rails.application.secrets.spotify_client_id, Rails.application.secrets.spotify_client_secret)
+		# RSpotify::authenticate(Rails.application.secrets.spotify_client_id, Rails.application.secrets.spotify_client_secret)
 		@spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
 
         p "User Playlists"
@@ -52,11 +52,12 @@ class SpotifyController < ApplicationController
         render json: final_tracks
     end
     def add
-        RSpotify::authenticate(Rails.application.secrets.spotify_client_id, Rails.application.secrets.spotify_client_secret)
-        @spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
+        # RSpotify::authenticate(Rails.application.secrets.spotify_client_id, Rails.application.secrets.spotify_client_secret)
+        # @spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
         # add track to user playlist
-        current_playlist = RSpotify::Playlist.find(@spotify_user.id, params[:playlist_id])
-        current_track = RSpotify::Track.search(params[:spotify_id])
+        p spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
+        current_playlist = RSpotify::Playlist.find(params[:user_id], params[:playlist_id])
+        current_track = RSpotify::Track.search(params[:spotify_track_id])
         current_playlist.add_tracks!(current_track)
         
     end
