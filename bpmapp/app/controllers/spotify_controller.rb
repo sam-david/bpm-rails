@@ -52,9 +52,12 @@ class SpotifyController < ApplicationController
         render json: final_tracks
     end
     def add
-        # add track to user playlist, implies track object exists
-        track = RSpotify::Track.search(params[:spotify_id])
-        @spotify_user.add_tracks!(track)
+        RSpotify::authenticate(Rails.application.secrets.spotify_client_id, Rails.application.secrets.spotify_client_secret)
+        @spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
+        # add track to user playlist
+        current_playlist = RSpotify::Playlist.find(@spotify_user.id, params[:playlist_id])
+        current_track = RSpotify::Track.search(params[:spotify_id])
+        current_playlist.add_tracks!(current_track)
         
     end
 end

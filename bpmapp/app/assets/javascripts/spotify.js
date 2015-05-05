@@ -1,3 +1,5 @@
+var hiddenPlaylists = false;
+var selectPlaylistId = "";
 
 function searchSpotify(queryText, divId) {
 	$.ajax({
@@ -12,44 +14,54 @@ function searchSpotify(queryText, divId) {
 	  })
 }
 
-function parseSpotifyTracks(trackData) {
-	for (var i = 0; i <= trackData.length; i++) {
-	}
-
-}
-
 function appendSpotifyTracks(trackData, divId) {
-	var divName = '#' + divId;
-	headerDiv = "<div class='row'><div class='large-12'><hr class='spotify-border'><h3 class='spotify-header-text'>Spotify Tracks</h3> </div></div>";
-	titleDiv = "<div class='row'><div class='large-4 columns column-heading'>Title</div><div class='large-4 columns column-heading'>Artist</div><div class='large-2 left columns column-heading'>Popularity</div></div>";
-	$(divName).append(headerDiv);
-	$(divName).append(titleDiv);
-	for (i = 0; i < trackData.length && i < 3; i++) {
-		artists = trackData[i].artists.toString();
-    newDiv = "<div class='row'><div class='large-4 columns'><p class='spotify-track-text'>"+ trackData[i].title + "</p></div><div class='large-4 columns'><p class='spotify-artist-text'>" + artists + "</p></div><div class='large-2 columns'><p class='spotify-popularity-text'>" + trackData[i].popularity + "</p></div><div class='large-2 columns'><p>Add to playlist</p></div></div>";
-    $(divName).append(newDiv)
-  }
+	if (isLoggedIn === true) {
+		var divName = '#' + divId;
+		headerDiv = "<div class='row'><div class='large-12'><hr class='spotify-border'><h3 class='spotify-header-text'>Spotify Tracks</h3> </div></div>";
+		titleDiv = "<div class='row'><div class='large-4 columns column-heading'>Title</div><div class='large-4 columns column-heading'>Artist</div><div class='large-2 left columns column-heading'>Popularity</div></div>";
+		$(divName).append(headerDiv);
+		$(divName).append(titleDiv);
+		for (i = 0; i < trackData.length && i < 3; i++) {
+			artists = trackData[i].artists.toString();
+	    newDiv = "<div class='row'><div class='large-4 columns'><p class='spotify-track-text'>"+ trackData[i].title + "</p></div><div class='large-4 columns'><p class='spotify-artist-text'>" + artists + "</p></div><div class='large-2 columns'><p class='spotify-popularity-text'>" + trackData[i].popularity + "</p></div><div class='large-2 columns'><a onclick='addTrackToPlaylist(\"" + trackData[i].spotify_id + "\")'>Add to playlist</a></div></div>";
+	    $(divName).append(newDiv)
+	  }	
+	}
 }
 
-function addTrackToPlaylsit(spotifyId) {
+function addTrackToPlaylist(spotifyId) {
+	console.log('adding track');
 	$.ajax({
 	    url: "/spotify/add",
-	    data: {spotify_id: spotifyId}
+	    method: "PUT",
+	    data: {spotify_id: spotifyId, playlist_id: selectPlaylistId}
 	  }).success(function(data) {
 	    console.log("Retrieved Track:" + data);
 	    console.log(data);
 	  }).fail(function() {
-	    console.log("failed to get track");
+	    console.log("failed to add track to playlist");
 	  })
 }
 
-function selectPlaylist(test) {
-	console.log(test);
-	console.log('Before', $('.side-nav'))
-	$('.side-nav').fadeOut();
-	console.log('After', $('.side-nav'))
+function selectPlaylist(playlistId, playlistElement) {
+	console.log(playlistElement)
+	if (hiddenPlaylists === false) {
+		$('.side-nav').fadeOut();
+		hiddenPlaylists = true;
+	} else {
+		$('.side-nav').fadeIn();
+		hiddenPlaylists = false;
+	}
+	selectPlaylistId = playlistId;
+	$(playlistElement).addClass('selected-playlist');
 }
 
 function togglePlaylist() {
-	if ($('.side-nav').css("display: none"))
+	if (hiddenPlaylists === false) {
+		$('.side-nav').fadeOut();
+		hiddenPlaylists = true;
+	} else {
+		$('.side-nav').fadeIn();
+		hiddenPlaylists = false;
+	}
 }

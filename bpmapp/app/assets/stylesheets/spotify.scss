@@ -6,6 +6,7 @@
 	background-color: rgb(41, 41, 41);
 	margin-top: 0px;
 	padding-top: 0px;
+	margin-bottom: 2%;
 }
 
 .spotify-playlist-title-box {
@@ -19,6 +20,8 @@
 	font-size: 1.5em;
 	margin-bottom: 0px;
 	padding: 1%;
+	cursor: pointer;
+	font-family: 'Fredoka One', cursive;
 }
 
 .spotify-playlist-list-box {
@@ -31,6 +34,10 @@
 
 .spotify-playlist-text:hover {
 	color: #DBFF70 !important;
+}
+
+.selected-playlist {
+	color: yellow !important;
 }
 
 .spotify-header-text {

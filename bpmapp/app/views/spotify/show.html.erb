@@ -1,13 +1,13 @@
 <div class="row">
 	<div class="large-8 large-centered columns spotify-playlist-title-box">
-		<h2 onclick="togglePlaylist()" class="spotify-playlist-title">Select playlist to add tracks</h2>
+		<h2 onclick="togglePlaylist()" class="spotify-playlist-title">Select Spotify Playlist to Add Tracks</h2>
 	</div>
 </div>
 <div class="row">
 	<div class="large-8 large-centered columns spotify-playlist-list-box">
 		<ul class="side-nav">
 		<% @playlists.each do |playlist| %>
-			<li><a onclick="selectPlaylist('<%= playlist.id %>')" class='spotify-playlist-text'><%= playlist.name %> | Owner: <%= playlist.owner.display_name %> | Tracks: <%= playlist.tracks.length %></a></li>
+			<li><a onclick="selectPlaylist('<%= playlist.id %>', this)" class='spotify-playlist-text'><%= playlist.name %> | Owner: <%= playlist.owner.display_name %> | Tracks: <%= playlist.tracks.length %></a></li>
 		<% end %>
 		</ul>
 	</div>
